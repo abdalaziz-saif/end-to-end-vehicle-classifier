@@ -17,6 +17,9 @@ def predict(img_path, class_names=None):
             batch_size=BATCH_SIZE
         )
         class_names = train_ds.class_names
+    elif isinstance(class_names, dict):
+        # If class_names is a dict, extract just the keys as a list
+        class_names = sorted(class_names.keys())
     
     # Load the model from the path 
     model = load_model(Model_path)
@@ -27,8 +30,9 @@ def predict(img_path, class_names=None):
     arr = np.expand_dims(arr, 0)
 
     pred = model.predict(arr)
-    cls = class_names[np.argmax(pred)]
+    pred_idx = np.argmax(pred)
+    cls = class_names[pred_idx]
     conf = np.max(pred)
 
-    print(f"THIS IS A {cls}")
-    print(f"CONFIDENCE: {conf:.2f}")
+    print(f"THIS IS A {cls.upper()}")
+    print(f"CONFIDENCE: {conf:.2%}")

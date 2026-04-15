@@ -3,7 +3,7 @@
 DATA_DIR = "data/raw"   # data path 
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
-EPOCHS = 10
+EPOCHS = 30  # Increased for better training
 
 
 # vehicle types 
