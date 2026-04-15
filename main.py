@@ -1,0 +1,33 @@
+
+import argparse
+from src.train import train_model
+from src.predict import predict
+from src.downloader import dawnload_image
+from src.evaluate_model import evaluate_model
+from config import CLASSES
+
+'''
+ note for using the function :  go to the termenal then : 
+
+    dawnload_imges     ->     main.py --mode download
+    train the model    ->     main.py --mode train 
+    make a Prediction  ->     main.py --mode predict 
+
+    
+'''
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--mode", type=str, required=True)
+
+args = parser.parse_args()
+
+if args.mode == "download":
+    dawnload_image()
+
+elif args.mode == "train":
+    class_names, history, val_ds = train_model()
+    evaluate_model(class_names , history , val_ds)
+
+elif args.mode == "predict":
+    predict("test.jpg")
+
