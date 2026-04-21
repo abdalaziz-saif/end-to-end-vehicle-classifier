@@ -19,7 +19,7 @@ This project automatically identifies vehicle types from images by leveraging:
 - 🚌 **Buses**           - ✈️ **planes**
 - 🚛 **Trucks**          - 🛺 **Auto-reckshows**
 - 🚴 **Bicycles** -
--
+
 
 ## 📊 Model Performance
 
@@ -32,7 +32,7 @@ This project automatically identifies vehicle types from images by leveraging:
 | Input Size | 224 × 224 |
 | Batch Size | 32 |
 | Epochs | ~30 (with early stopping) |
-| Learning Rate | 1e-4 (adaptive scheduling) |
+| Learning Rate | 1e-4  |
 
 ## 🛠️ Installation & Setup
 
