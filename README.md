@@ -1,6 +1,6 @@
 # Vehicle Type Classification
 
-A deep learning project that classifies images into 9 vehicle types using transfer learning with MobileNetV2. The model achieves 89.7% validation accuracy on a dataset of 7,488 images collected through web scraping. Images were gathered using Baidu and Bingand Googel and Flcker crawlers, followed by a preprocessing pipeline that cleaned and standardized the dataset using  PIL and tf_image decode to ensure consistent formatting and quality.
+A deep learning project that classifies images into 9 vehicle types using transfer learning with MobileNetV2. The model achieves 89.7% validation accuracy on a dataset of 7,488 images collected through web scraping. Images were gathered using Baidu and Bing and Googel and Flcker crawlers, followed by a preprocessing pipeline that cleaned and standardized the dataset using  PIL and tf_image decode to ensure consistent formatting and quality.
 
 ## 🚗 Project Overview
 
