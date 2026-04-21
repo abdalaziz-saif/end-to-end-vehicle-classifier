@@ -200,9 +200,8 @@ CLASSES = {
 
 The model uses optimized hyperparameters for best performance:
 
-- **Base Model:** MobileNetV2 (ImageNet pre-trained)
+- **Base Model:**  Fine-tunied MobileNetV2
 - **Frozen Layers:** First 50 layers (unfroze 85+ for fine-tuning)
-- **Learning Rate:** 1e-4 (with ReduceLROnPlateau scheduling)
 - **Optimizer:** Adam
 - **Loss:** Sparse Categorical Crossentropy
 - **Augmentation:** Flip, Rotation, Zoom, Brightness, Contrast, Translation
