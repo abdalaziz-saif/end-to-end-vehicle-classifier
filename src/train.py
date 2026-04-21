@@ -73,7 +73,7 @@ def train_model ():
     model = keras.Model(inputs=inputs, outputs=outputs)
 
     # Use a custom optimizer with lower learning rate for fine-tuning
-    optimizer = keras.optimizers.Adam(learning_rate=1e-5)
+    optimizer = keras.optimizers.Adam(learning_rate=1e-4)
     model.compile(
         optimizer=optimizer,
         loss='sparse_categorical_crossentropy',

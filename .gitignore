@@ -86,3 +86,5 @@ htmlcov/
 *.zip
 *.tar.gz
 *.rar
+
+venv3/

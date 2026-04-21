@@ -1,3 +1,5 @@
+from re import sub
+
 import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
@@ -18,7 +20,7 @@ def predict(img_path, class_names=None):
         )
         class_names = train_ds.class_names
     elif isinstance(class_names, dict):
-        # If class_names is a dict, extract just the keys as a list
+        # extract the keys if class_names is a dict
         class_names = sorted(class_names.keys())
     
     # Load the model from the path 
@@ -28,7 +30,8 @@ def predict(img_path, class_names=None):
     # covert the img to an array 
     arr = image.img_to_array(img)
     arr = np.expand_dims(arr, 0)
-
+    
+    # make a prediction
     pred = model.predict(arr)
     pred_idx = np.argmax(pred)
     cls = class_names[pred_idx]
@@ -36,3 +39,4 @@ def predict(img_path, class_names=None):
 
     print(f"THIS IS A {cls.upper()}")
     print(f"CONFIDENCE: {conf:.2%}")
+

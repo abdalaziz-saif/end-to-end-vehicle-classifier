@@ -1,6 +1,6 @@
 # Vehicle Type Classification
 
-A deep learning project that classifies images into 5 vehicle types using transfer learning with MobileNetV2. The model achieves 75.83% validation accuracy on a dataset of 1,656 images collected through web scraping. Images were gathered using Baidu and Bing crawlers, followed by a preprocessing pipeline that cleaned and standardized the dataset using pathlib and PIL to ensure consistent formatting and quality.
+A deep learning project that classifies images into 9 vehicle types using transfer learning with MobileNetV2. The model achieves 89.7% validation accuracy on a dataset of 7,488 images collected through web scraping. Images were gathered using Baidu and Bingand Googel and Flcker crawlers, followed by a preprocessing pipeline that cleaned and standardized the dataset using  PIL and tf_image decode to ensure consistent formatting and quality.
 
 ## 🚗 Project Overview
 
@@ -10,24 +10,25 @@ This project automatically identifies vehicle types from images by leveraging:
 - **Advanced data augmentation** (flip, rotation, zoom, brightness, contrast, translation)
 - **Fine-tuning strategy** with learning rate scheduling
 - **Early stopping** to prevent overfitting
+- **Data Cleaning & Validation**  Removed corrupted and unreadable images before training
 - **evaluation metrics** and model summaries
 
 ### Supported Vehicle Types
-- 🚗 **Cars** -  
-- 🏍️ **Motorcycles** - 
-- 🚛 **Trucks** 
-- 🚌 **Buses**  
+- 🚗 **Cars**            -  🚢 **Ships**
+- 🏍️ **Motorcycles**     - 🚂 **Trains** 
+- 🚌 **Buses**           - ✈️ **planes**
+- 🚛 **Trucks**          - 🛺 **Auto-reckshows**
 - 🚴 **Bicycles** -
+-
 
 ## 📊 Model Performance
 
 | Metric | Value |
 |--------|-------|
-| Training Accuracy | 75.25% |
-| Validation Accuracy | **75.83%** |
-| Training Data | 1,325 images |
-| Validation Data | 331 images |
-| Model | MobileNetV2 (Transfer Learning) |
+| Training Accuracy | 91.25% |
+| Validation Accuracy | **89.7%** |
+| Training Data | 7,498 images |
+| Model | MobileNetV2 (Fine_Tune) |
 | Input Size | 224 × 224 |
 | Batch Size | 32 |
 | Epochs | ~30 (with early stopping) |
@@ -138,11 +139,60 @@ BATCH_SIZE = 32                 # Training batch size
 EPOCHS = 30                     # Max epochs (uses early stopping)
 
 CLASSES = {
-    "car": "car on road",
-    "motorcycle": "motorcycle on road", 
-    "truck": "truck vehicle",
-    "bus": "bus on road",
-    "bicycle": "bicycle"
+    "car": [
+        "car on road",
+        "sedan automobile",
+        "hatchback car street",
+        "car driving highway"
+    ],
+    "motorcycle": [
+        "motorcycle on road",
+        "motorbike street",
+        "sport motorcycle riding",
+        "motorcycle highway"
+    ],
+    "truck": [
+        "truck vehicle road",
+        "cargo truck highway",
+        "pickup truck",
+        "semi truck freight"
+    ],
+    "bus": [
+        "bus on road",
+        "city bus street",
+        "school bus",
+        "public transport bus"
+    ],
+    "bicycle": [
+        "bicycle on road",
+        "bike cycling street",
+        "mountain bike riding",
+        "bicycle city"
+    ],
+    "plane": [
+        "airplane flying sky",
+        "commercial aircraft flight",
+        "passenger plane airport",
+        "jet airplane takeoff"
+    ],
+    "ship": [
+        "cargo ship ocean",
+        "large vessel sea",
+        "container ship sailing",
+        "cruise ship water"
+    ],
+    "auto_rickshaw": [
+        "auto rickshaw street",
+        "tuk tuk vehicle",
+        "three wheeler rickshaw road",
+        "auto rickshaw india traffic"
+    ],
+    "train": [
+        "passenger train railway",
+        "train on tracks",
+        "freight train railroad",
+        "high speed train"
+    ]
 }
 ```
 

@@ -4,9 +4,22 @@ import matplotlib.pyplot as plt
 import numpy as np
 from tensorflow.keras.models import load_model
 import json
+import os 
+from config import DATA_DIR
 
 
 def evaluate_model(class_names, history, val_ds):
+   # images for each Type 
+    x = []
+    y= []
+    for dirname in os.listdir(DATA_DIR) :
+        y.append (dirname)
+        x.append(len(os.path.join(DATA_DIR ,dirname)))
+    plt.bar(x ,y )
+    plt.savefig("outputs/count_images_plot.png")
+    
+   
+   
     # Load the model inside the function
     model = load_model("models/vehicle_model.keras")
    
@@ -50,3 +63,5 @@ def evaluate_model(class_names, history, val_ds):
 
     with open("outputs/metrics.json", "w") as f:
         json.dump(metrics, f, indent=4)
+
+    
